@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package pb;
+
+import "google/protobuf/empty.proto";
+
+message Todo {
+  string id = 1;
+  string name = 2;
+  bool completed = 3;
+}
+
+message Todos {
+  repeated Todo todos = 1;
+}
+
+service TodoService {
+  rpc CreateTodo(Todo) returns (google.protobuf.Empty) {}
+  rpc RetrieveTodos(google.protobuf.Empty) returns (Todos) {}
+}

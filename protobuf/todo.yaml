@@ -1,0 +1,10 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+  - selector: grpc.TodoService.RetrieveTodos
+    get: /v1/todo/retrieve
+  - selector: grpc.TodoService.CreateTodo
+    post: /v1/todo/create
+    body: "*"
